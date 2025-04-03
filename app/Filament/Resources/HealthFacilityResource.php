@@ -29,7 +29,7 @@ class HealthFacilityResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('address')
+                Forms\Components\TextInput::make('adds')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('phone')

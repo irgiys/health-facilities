@@ -14,16 +14,15 @@ return new class extends Migration
         Schema::create('health_facilities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('address');
-            $table->string('phone')->nullable();
-            $table->string('email')->nullable();
-            $table->string('website')->nullable();
-            $table->string('image');
-            $table->string('google_map');
-            $table->string('description');
             $table->foreignId('type_id')->cascadeOnDelete();
+            $table->string('address');
+            $table->string('district');
             $table->string('latitude');
             $table->string('longitude');
+            $table->string('no_telp')->nullable();
+            $table->string('email')->nullable();
+            $table->string('url')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

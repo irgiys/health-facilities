@@ -2,16 +2,21 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
+use JeroenZwart\CsvSeeder\CsvSeeder;
 
-class TypeSeeder extends Seeder
+class TypeSeeder extends CsvSeeder
 {
     /**
      * Run the database seeds.
      */
+    public function __construct()
+    {
+        $this->file = '/database/data/types.csv';
+        $this->delimiter = '|';
+        $this->foreignKeyCheck = true;
+    }
     public function run(): void
     {
-        //
+        parent::run();
     }
 }
