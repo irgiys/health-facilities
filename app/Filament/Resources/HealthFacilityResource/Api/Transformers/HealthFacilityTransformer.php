@@ -18,6 +18,20 @@ class HealthFacilityTransformer extends JsonResource
      */
     public function toArray($request)
     {
-        return $this->resource->toArray();
+        return [
+            'id' => $this->resource->id,
+            'name' => $this->resource->name,
+            'type' => $this->resource->type ? $this->resource->type->name : null,
+            'district' => $this->resource->district,
+            // 'address' => $this->resource->address,
+            'latitude' => $this->resource->latitude,
+            'longitude' => $this->resource->longitude,
+            'no_telp' => $this->resource->no_telp,
+            // 'email' => $this->resource->email,
+            // 'url' => $this->resource->url,
+            'image' => $this->resource->image,
+            'created_at' => $this->resource->created_at,
+            'updated_at' => $this->resource->updated_at,
+        ];
     }
 }

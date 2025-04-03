@@ -18,6 +18,7 @@ class PaginationHandler extends Handlers {
      * @param Request $request
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
+    
     public function handler()
     {
         $query = static::getEloquentQuery();
@@ -32,4 +33,5 @@ class PaginationHandler extends Handlers {
 
         return HealthFacilityTransformer::collection($query);
     }
+    
 }

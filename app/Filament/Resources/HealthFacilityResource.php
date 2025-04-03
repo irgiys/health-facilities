@@ -29,35 +29,28 @@ class HealthFacilityResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('adds')
+                Forms\Components\TextInput::make('district')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('phone')
-                    ->tel()
+                Forms\Components\Textarea::make('address')
+                    ->required()
+                    ->columnSpanFull()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('email')
                     ->email()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('website')
-                    ->url()
+                Forms\Components\TextInput::make('no_telp')
+                    // ->number()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('google_map')
-                    ->required()
-                    ->url()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('description')
-                    ->required()
+                Forms\Components\TextInput::make('url')
                     ->maxLength(255),
                 Forms\Components\Select::make('type_id')
                     ->required()
                     ->options(Type::all()->pluck('name', 'id'))
                     ->searchable(),
                 Forms\Components\FileUpload::make('image')
-                    ->required()
                     ->image()
                     ->columnSpanFull(),
-
-
                 Forms\Components\TextInput::make('latitude')
                     ->required()
                     ->numeric()
@@ -80,7 +73,7 @@ class HealthFacilityResource extends Resource
                     ->zoom(10)
                     ->columnSpanFull()
                     ->draggable(false)
-                    ->disabled()
+                    ->disabled(true)
                     // ->afterStateUpdated(function (Set $set, $state): void {
                     //     \Log::info('Map state updated:', $state); // Log the state
                     //     $set('latitude', $state['lat'] ?? null);
@@ -93,15 +86,26 @@ class HealthFacilityResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')->sortable(),
-                Tables\Columns\TextColumn::make('address'),
-                Tables\Columns\TextColumn::make('phone'),
-                Tables\Columns\TextColumn::make('email'),
-                Tables\Columns\TextColumn::make('latitude'),
-                Tables\Columns\TextColumn::make('longitude'),
+                Tables\Columns\TextColumn::make('name')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('type.name')->label('Type')->sortable(),
+                Tables\Columns\TextColumn::make('district')->sortable(),
+                // Tables\Columns\TextColumn::make('no_telp'),
+                // Tables\Columns\TextColumn::make('address')
+                // ->limit(20) 
+                // ->tooltip(fn ($record) => $record->address),
+                // Tables\Columns\TextColumn::make('email'),
+                // Tables\Columns\TextColumn::make('latitude')->limit(10),
+                // Tables\Columns\TextColumn::make('longitude')->limit(10),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('type')
+                    ->relationship('type', 'name') 
+                    ->label('Filter by Type')
+                    ->placeholder('All Types'), // Placeholder untuk opsi "semua"
+                    // Tables\Filters\SelectFilter::make('district')
+                    // ->options(HealthFacility::pluck('district')->unique()->values()->all())
+                    // ->label('Filter by District')
+                    // ->placeholder('All Districts'),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),

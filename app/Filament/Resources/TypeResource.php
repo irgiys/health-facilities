@@ -27,16 +27,6 @@ class TypeResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->live(onBlur: true)
-                    ->afterStateUpdated(fn (string $operation, $state, Forms\Set $set) => $operation === 'create' ? $set('slug', Str::slug($state)) : null),
-                Forms\Components\TextInput::make('slug')
-                    ->disabled()
-                    ->dehydrated()
-                    ->required()
-                    ->maxLength(255)
-                    ->unique(Type::class, 'slug', ignoreRecord: true),
-                Forms\Components\Textarea::make('description')
-                    ->maxLength(255)
-                    ->columnSpanFull(),               
             ]);
     }
 
@@ -45,7 +35,6 @@ class TypeResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('slug'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime('d M Y'),
                 Tables\Columns\TextColumn::make('updated_at')
