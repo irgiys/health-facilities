@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\TypeResource\Pages;
-use App\Filament\Resources\TypeResource\RelationManagers;
-use App\Models\Type;
+use App\Filament\Resources\DistrictResource\Pages;
+use App\Filament\Resources\DistrictResource\RelationManagers;
+use App\Models\District;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -15,11 +15,11 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 
 
-class TypeResource extends Resource
+class DistrictResource extends Resource
 {
-    protected static ?string $model = Type::class;
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-group';
-    protected static ?int $navigationSort = 3; // Will appear third
+    protected static ?string $model = District::class;
+    protected static ?string $navigationIcon = 'heroicon-o-map';
+    protected static ?int $navigationSort = 2; // Will appear second
     public static function form(Form $form): Form
     {
         return $form
@@ -67,12 +67,11 @@ class TypeResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageTypes::route('/'),
-            // 'create' => Pages\CreateType::route('/create'),
-            // 'edit' => Pages\EditType::route('/{record}/edit'),
+            'index' => Pages\ManageDistricts::route('/'),
+            // 'create' => Pages\CreateDistrict::route('/create'),
+            // 'edit' => Pages\EditDistrict::route('/{record}/edit'),
         ];
     }
 }
-
 
 

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->foreignId('type_id')->cascadeOnDelete();
             $table->string('address');
-            $table->string('district');
+            $table->foreignId('district_id')->cascadeOnDelete();
             $table->string('latitude');
             $table->string('longitude');
             $table->string('no_telp')->nullable();

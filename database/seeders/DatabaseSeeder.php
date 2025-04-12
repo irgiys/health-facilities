@@ -3,8 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Doctrine\DBAL\Types\Types;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -25,5 +23,6 @@ class DatabaseSeeder extends Seeder
         
         $this->call(HealthFacilitySeeder::class);
         $this->call(TypeSeeder::class);
+        $this->call(DistrictSeeder::class);
     }
 }

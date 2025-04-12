@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\HealthFacilityResource\Pages;
+use App\Models\District;
 use App\Models\HealthFacility;
 use App\Models\Type;
 use Dotswan\MapPicker\Fields\Map;
@@ -21,6 +22,7 @@ class HealthFacilityResource extends Resource
 {
     protected static ?string $model = HealthFacility::class;
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?int $navigationSort = 1; // Will appear first
     
     public static function form(Form $form): Form
     {
@@ -29,9 +31,10 @@ class HealthFacilityResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('district')
+                Forms\Components\Select::make('district_id')
                     ->required()
-                    ->maxLength(255),
+                    ->options(District::all()->pluck('name', 'id'))
+                    ->searchable(),
                 Forms\Components\Textarea::make('address')
                     ->required()
                     ->columnSpanFull()
@@ -88,7 +91,7 @@ class HealthFacilityResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('type.name')->label('Type')->sortable(),
-                Tables\Columns\TextColumn::make('district')->sortable(),
+                Tables\Columns\TextColumn::make('district.name')->label('District')->sortable(),
                 // Tables\Columns\TextColumn::make('no_telp'),
                 // Tables\Columns\TextColumn::make('address')
                 // ->limit(20) 
@@ -102,10 +105,10 @@ class HealthFacilityResource extends Resource
                     ->relationship('type', 'name') 
                     ->label('Filter by Type')
                     ->placeholder('All Types'), // Placeholder untuk opsi "semua"
-                    // Tables\Filters\SelectFilter::make('district')
-                    // ->options(HealthFacility::pluck('district')->unique()->values()->all())
-                    // ->label('Filter by District')
-                    // ->placeholder('All Districts'),
+                    Tables\Filters\SelectFilter::make('district')
+                    ->relationship('district', 'name') 
+                    ->label('Filter by District')
+                    ->placeholder('All Districts'),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
@@ -134,3 +137,5 @@ class HealthFacilityResource extends Resource
         ];
     }
 }
+
+

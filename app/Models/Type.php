@@ -10,7 +10,7 @@ class Type extends Model
 {
     /** @use HasFactory<\Database\Factories\TypeFactory> */
 use HasFactory;
-    protected $fillable = ['name', 'slug', 'description'];
+    protected $guarded = [];
     public function healthFacilities(): HasMany
     {
         return $this->hasMany(HealthFacility::class, 'type_id');

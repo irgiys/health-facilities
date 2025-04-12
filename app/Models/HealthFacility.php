@@ -17,6 +17,10 @@ class HealthFacility extends Model implements HasAllowedFilters
     {
         return $this->belongsTo(Type::class, 'type_id');
     }
+    public function district(): BelongsTo
+    {
+        return $this->belongsTo(District::class, 'district_id');
+    }
     // filter
     public static function getAllowedFilters(): array
     {
