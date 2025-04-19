@@ -25,6 +25,6 @@ class HealthFacility extends Model implements HasAllowedFilters
     public static function getAllowedFilters(): array
     {
         // Your implementation here
-        return ["district", "type.name"];
+        return ["district.name", "type.name"];
     }
 }

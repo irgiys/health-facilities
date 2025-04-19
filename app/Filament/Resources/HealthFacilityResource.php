@@ -21,7 +21,7 @@ use Filament\Support\Enums\VerticalAlignment;
 class HealthFacilityResource extends Resource
 {
     protected static ?string $model = HealthFacility::class;
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-m-building-office-2';
     protected static ?int $navigationSort = 1; // Will appear first
     
     public static function form(Form $form): Form
@@ -73,6 +73,7 @@ class HealthFacilityResource extends Resource
                     }),
 
                 Map::make('location')
+                    // ->liveLocation(true, true, 1000)  // Updates live location every 10 seconds
                     ->zoom(10)
                     ->columnSpanFull()
                     ->draggable(false)
@@ -137,5 +138,3 @@ class HealthFacilityResource extends Resource
         ];
     }
 }
-
-

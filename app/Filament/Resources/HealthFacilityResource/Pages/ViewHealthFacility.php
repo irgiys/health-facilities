@@ -10,6 +10,7 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Form;
 use Filament\Actions\Action;
+use Filament\Forms\Components\FileUpload;
 
 class ViewHealthFacility extends ViewRecord
 {
@@ -26,6 +27,10 @@ class ViewHealthFacility extends ViewRecord
                     TextInput::make('no_telp')->disabled(),
                     TextInput::make('address')->disabled(),
                     TextInput::make('email')->disabled(),
+                    FileUpload::make('image')
+                        ->disabled()
+                        ->image()
+                        ->hidden(fn ($record) => empty($record->image)), // Hide if no image
                     TextInput::make('latitude')->disabled(),
                     TextInput::make('longitude')->disabled(),
                     Map::make('location')
