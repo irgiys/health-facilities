@@ -2,7 +2,7 @@
 # Health Facilities
 
 ## Overview
-The **Health Facilities** repository is a web-based application built to manage and visualize health facility data. This project provides a robust platform for tracking and analyzing healthcare facilities, including their locations. It is developed using **PHP Laravel** with **Filament** for an efficient admin panel, offering a seamless and modern user experience.  Additionally, the application includes a RESTful API to enable integration with external systems, allowing developers to programmatically access and manage health facility.
+The **Health Facilities** repository is a web-based application built to manage and visualize health facility data. This project provides a robust platform for tracking and analyzing healthcare facilities, including their locations. It is developed using **PHP Laravel** with **Filament** for an efficient admin panel, offering a seamless and modern user experience.  Additionally, the application includes a RESTful API to enable integration with external systems, allowing developers to programmatically access and manage health facility using rupadana plugin.
 
 ## Installation
 To set up the project locally, follow these steps:
