@@ -57,27 +57,27 @@ class HealthFacilityResource extends Resource
                 Forms\Components\TextInput::make('latitude')
                     ->required()
                     ->numeric()
-                    ->live(onBlur: true)
-                    ->afterStateUpdated(function (Set $set, $state, $livewire): void {
-                        $set('location.lat', $state);
-                        $livewire->dispatch('refreshMap');
-                    }),
+                    ->live(onBlur: true),
+                    // ->afterStateUpdated(function (Set $set, $state, $livewire): void {
+                    //     $set('location.lat', $state);
+                    //     $livewire->dispatch('refreshMap');
+                    // }),
 
                 Forms\Components\TextInput::make('longitude')
                     ->required()
                     ->numeric()
                     ->live(onBlur: true)
-                    ->afterStateUpdated(function (Set $set, $state, $livewire): void {
-                        $set('location.lng', $state);
-                        $livewire->dispatch('refreshMap');
-                    }),
+                    // ->afterStateUpdated(function (Set $set, $state, $livewire): void {
+                    //     $set('location.lng', $state);
+                    //     $livewire->dispatch('refreshMap');
+                    // }),
 
-                Map::make('location')
-                    // ->liveLocation(true, true, 1000)  // Updates live location every 10 seconds
-                    ->zoom(10)
-                    ->columnSpanFull()
-                    ->draggable(false)
-                    ->disabled(true)
+                // Map::make('location')
+                //     // ->liveLocation(true, true, 1000)  // Updates live location every 10 seconds
+                //     ->zoom(10)
+                //     ->columnSpanFull()
+                //     ->draggable(false)
+                //     ->disabled(true)
                     // ->afterStateUpdated(function (Set $set, $state): void {
                     //     \Log::info('Map state updated:', $state); // Log the state
                     //     $set('latitude', $state['lat'] ?? null);

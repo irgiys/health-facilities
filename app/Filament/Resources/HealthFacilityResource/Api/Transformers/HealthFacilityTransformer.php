@@ -22,6 +22,7 @@ class HealthFacilityTransformer extends JsonResource
             'id' => $this->resource->id,
             'name' => $this->resource->name,
             'type' => $this->resource->type ? $this->resource->type->name : null,
+            'address' => $this->resource->address,
             'district' => $this->resource->district ? $this->resource->district->name : null,
             'latitude' => $this->resource->latitude,
             'longitude' => $this->resource->longitude,
