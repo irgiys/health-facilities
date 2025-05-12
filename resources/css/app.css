@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.fi-simple-layout header.fi-simple-header img.fi-logo {
+    height: 5rem !important; /* Even bigger on login page */
+    width: auto !important;
+}

@@ -34,10 +34,9 @@ class AdminPanelProvider extends PanelProvider
                 'primary' => Color::Green,
             ])
             ->favicon(asset('images/favicon.ico'))
-            ->brandLogo(asset('images/android-chrome-512x512.png'))
-            ->brandLogoHeight('2.5rem')
+            // ->brandLogo(asset('images/android-chrome-512x512.png'))
+            // ->brandLogoHeight('5rem')
             ->brandName('Sikata')
-            // ->brandNameColor('white')    
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
