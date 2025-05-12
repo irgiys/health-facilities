@@ -32,6 +32,7 @@ class HealthFacilityResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Select::make('district_id')
+                    ->label('District')
                     ->required()
                     ->options(District::all()->pluck('name', 'id'))
                     ->searchable(),
@@ -48,6 +49,7 @@ class HealthFacilityResource extends Resource
                 Forms\Components\TextInput::make('url')
                     ->maxLength(255),
                 Forms\Components\Select::make('type_id')
+                    ->label('Type')
                     ->required()
                     ->options(Type::all()->pluck('name', 'id'))
                     ->searchable(),
