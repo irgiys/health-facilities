@@ -19,6 +19,7 @@ class TypeResource extends Resource
 {
     protected static ?string $model = Type::class;
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-group';
+    protected static ?string $navigationLabel = 'Tipe Fasilitas';
     protected static ?int $navigationSort = 3; // Will appear third
     public static function form(Form $form): Form
     {

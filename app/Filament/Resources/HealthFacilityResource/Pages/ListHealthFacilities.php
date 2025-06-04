@@ -13,7 +13,10 @@ class ListHealthFacilities extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()->label('Tambah Fasilitas Kesehatan')
+                ->icon('heroicon-o-plus')
+                ->color('primary')
+                ->tooltip('Tambah Fasilitas Kesehatan'),
         ];
     }
 }

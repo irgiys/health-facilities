@@ -24,6 +24,8 @@ services:
         depends_on:
             - mysql
             - phpmyadmin
+        environment:
+            - DB_HOST=mysql
     phpmyadmin:
         image: 'phpmyadmin:latest'
         ports:

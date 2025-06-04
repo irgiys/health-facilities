@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class DistrictTypeDistributionChart extends ChartWidget
 {
-    protected static ?string $heading = 'Health Facilities Distribution by District';
+    protected static ?string $heading = 'Distribusi fasilitas kesehatan berdasarkan kecamatan';
     protected static ?int $sort = 3; 
     public function getColumnSpan(): int | string | array
     {
@@ -18,7 +18,6 @@ class DistrictTypeDistributionChart extends ChartWidget
     }
     protected function getData(): array
     {
-        // $districts = District::all()->pluck('name')->toArray();
         $districtCounts = HealthFacility::select('districts.name', DB::raw('count(*) as total_count'))
             ->join('districts', 'health_facilities.district_id', '=', 'districts.id')
             ->groupBy('districts.name')

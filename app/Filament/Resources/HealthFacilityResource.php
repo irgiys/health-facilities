@@ -6,37 +6,40 @@ use App\Filament\Resources\HealthFacilityResource\Pages;
 use App\Models\District;
 use App\Models\HealthFacility;
 use App\Models\Type;
-use Dotswan\MapPicker\Fields\Map;
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Forms\Set;
 use Filament\Resources\Resource;
+use Filament\Tables\Actions\CreateAction;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Filament\Forms\Components\Actions\Action;
-use Filament\Forms\Components\Actions;
-use Filament\Forms\Get;
-use Filament\Support\Enums\VerticalAlignment;
 
 class HealthFacilityResource extends Resource
 {
     protected static ?string $model = HealthFacility::class;
     protected static ?string $navigationIcon = 'heroicon-m-building-office-2';
-    protected static ?int $navigationSort = 1; // Will appear first
+    protected static ?string $navigationLabel = 'Fasilitas Kesehatan';
+    protected static ?int $navigationSort = 1; 
+    protected static ?string $breadcrumb = 'Fasilitas Kesehatan';
+    protected static ?string $header = 'Fasilitas Kesehatan';
+    protected static ?string $modelLabel = 'Fasilitas Kesehatan';
+    protected static ?string $pluralModelLabel = 'Fasilitas Kesehatan';
     
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label('Nama Fasilitas Kesehatan')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Select::make('district_id')
-                    ->label('District')
+                    ->label('Kecamatan')
                     ->required()
                     ->options(District::all()->pluck('name', 'id'))
                     ->searchable(),
                 Forms\Components\Textarea::make('address')
+                    ->label('Alamat')
                     ->required()
                     ->columnSpanFull()
                     ->maxLength(255),
@@ -47,15 +50,16 @@ class HealthFacilityResource extends Resource
                     // ->number()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('url')
+                    ->label('Laman web / sosial media')
                     ->maxLength(255),
                 Forms\Components\Select::make('type_id')
-                    ->label('Type')
+                    ->label('Tipe Fasilitas Kesehatan')
                     ->required()
                     ->options(Type::all()->pluck('name', 'id'))
                     ->searchable(),
-                Forms\Components\FileUpload::make('image')
-                    ->image()
-                    ->columnSpanFull(),
+                // Forms\Components\FileUpload::make('image')
+                //     ->image()
+                //     ->columnSpanFull(),
                 Forms\Components\TextInput::make('latitude')
                     ->required()
                     ->numeric()
@@ -90,6 +94,7 @@ class HealthFacilityResource extends Resource
 
     public static function table(Table $table): Table
     {
+
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')->sortable()->searchable(),

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class DistrictDistributionChart extends ChartWidget
 {
-    protected static ?string $heading = 'Health Facilities by District';
+    protected static ?string $heading = 'Fasilitas Kesehatan berdasarkan kecamatan';
     protected static ?int $sort = 1;
 
     protected function getData(): array

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class TypeDistributionChart extends ChartWidget
 {
-    protected static ?string $heading = 'Health Facilities by Type';
+    protected static ?string $heading = 'Fasilitas kesehatan berdasarkan tipe';
     protected static ?int $sort = 2;
 
     protected function getData(): array

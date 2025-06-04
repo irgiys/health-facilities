@@ -13,19 +13,19 @@ class StatsOverview extends BaseWidget
     protected function getStats(): array
     {
         return [
-            Stat::make('Total Health Facilities', HealthFacility::count())
-                ->description('Total registered facilities')
-                ->descriptionIcon('heroicon-m-building-office-2')
+            Stat::make('Total Fasilitas Kesehatan', HealthFacility::count())
+                ->description('Total fasilitas kesehatan')
+                // ->descriptionIcon('heroicon-m-building-office-2')
                 ->color('success'),
             
-            Stat::make('Total Districts', District::count())
-                ->description('Registered districts')
-                ->descriptionIcon('heroicon-m-map')
+            Stat::make('Total Kecamatan', District::count())
+                ->description('Total kecamatan di Purwakarta')
+                // ->descriptionIcon('heroicon-m-map')
                 ->color('warning'),
             
-            Stat::make('Facility Types', Type::count())
-                ->description('Different types of facilities')
-                ->descriptionIcon('heroicon-m-rectangle-group')
+            Stat::make('Tipe Fasilitas', Type::count())
+                ->description('Perbedaan tipe fasilitas')
+                // ->descriptionIcon('heroicon-m-rectangle-group')
                 ->color('info'),
         ];
     }
