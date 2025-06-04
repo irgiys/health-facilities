@@ -97,9 +97,9 @@ class HealthFacilityResource extends Resource
 
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')->sortable()->searchable(),
-                Tables\Columns\TextColumn::make('type.name')->label('Type')->sortable(),
-                Tables\Columns\TextColumn::make('district.name')->label('District')->sortable(),
+                Tables\Columns\TextColumn::make('name')->label('Nama Fasilitas Kesehatan')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('type.name')->label('Tipe')->sortable(),
+                Tables\Columns\TextColumn::make('district.name')->label('Kecamatan')->sortable(),
                 // Tables\Columns\TextColumn::make('no_telp'),
                 // Tables\Columns\TextColumn::make('address')
                 // ->limit(20) 
@@ -111,12 +111,12 @@ class HealthFacilityResource extends Resource
             ->filters([
                 Tables\Filters\SelectFilter::make('type')
                     ->relationship('type', 'name') 
-                    ->label('Filter by Type')
-                    ->placeholder('All Types'), // Placeholder untuk opsi "semua"
+                    ->label('Filter berdasarkan tipe')
+                    ->placeholder('Semua Tipe'), // Placeholder untuk opsi "semua"
                     Tables\Filters\SelectFilter::make('district')
                     ->relationship('district', 'name') 
-                    ->label('Filter by District')
-                    ->placeholder('All Districts'),
+                    ->label('Filter berdasarkan Kecamatan')
+                    ->placeholder('Semua Kecamatan'),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
