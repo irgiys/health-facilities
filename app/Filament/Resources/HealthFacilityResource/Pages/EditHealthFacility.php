@@ -9,6 +9,11 @@ use Filament\Resources\Pages\EditRecord;
 class EditHealthFacility extends EditRecord
 {
     protected static string $resource = HealthFacilityResource::class;
+    
+    protected function getRedirectUrl(): string
+    {
+        return HealthFacilityResource::getUrl('index');
+    }
 
     protected function getHeaderActions(): array
     {
