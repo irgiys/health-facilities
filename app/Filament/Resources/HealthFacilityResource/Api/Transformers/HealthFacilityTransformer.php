@@ -29,6 +29,7 @@ class HealthFacilityTransformer extends JsonResource
             'no_telp' => $this->resource->no_telp,
             'email' => $this->resource->email,
             'url' => $this->resource->url,
+            'kdppk' => $this->resource->kdppk,
             'image' => $this->resource->image ? url("storage",$this->resource->image) : null,
             'created_at' => $this->resource->created_at,
             'updated_at' => $this->resource->updated_at,

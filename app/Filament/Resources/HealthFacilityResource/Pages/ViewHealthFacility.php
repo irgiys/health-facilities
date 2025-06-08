@@ -27,6 +27,8 @@ class ViewHealthFacility extends ViewRecord
                     TextInput::make('no_telp')->disabled(),
                     TextInput::make('address')->disabled(),
                     TextInput::make('email')->disabled(),
+                    TextInput::make('url')->disabled(),
+                    TextInput::make('kdppk')->disabled(),
                     FileUpload::make('image')
                         ->disabled()
                         ->image()

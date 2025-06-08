@@ -52,9 +52,13 @@ class HealthFacilityResource extends Resource
                 Forms\Components\TextInput::make('url')
                     ->label('Laman web / sosial media')
                     ->maxLength(255),
+                Forms\Components\TextInput::make('kdppk')
+                    ->label('Kode PPK')
+                    ->maxLength(255),
                 Forms\Components\Select::make('type_id')
                     ->label('Tipe Fasilitas Kesehatan')
                     ->required()
+                    ->columnSpan(2)
                     ->options(Type::all()->pluck('name', 'id'))
                     ->searchable(),
                 // Forms\Components\FileUpload::make('image')
