@@ -21,10 +21,9 @@ class HealthFacility extends Model implements HasAllowedFilters
     {
         return $this->belongsTo(District::class, 'district_id');
     }
-    // filter
     public static function getAllowedFilters(): array
     {
-        // Your implementation here
+        // uri/health-facilities?filter[district.name]=value&filter[type.name]=value
         return ["district.name", "type.name"];
     }
 }

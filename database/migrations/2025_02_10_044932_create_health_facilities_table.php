@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('no_telp')->nullable();
             $table->string('email')->nullable();
             $table->string('url')->nullable();
+            $table->string('kdppk')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });
